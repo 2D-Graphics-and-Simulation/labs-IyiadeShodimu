@@ -19,8 +19,14 @@ function onLoad() {
          }      
 
     }
+    // this function will actually draw on the canvas
+    function draw() {
+        // set the draw fill style colour to black
+        mainContext.fillStyle = "#000000";
+        // fill the canvas with black
+        mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
+    }
     initialiseCanvasContext();
+    draw();
 }
-
-
 window.addEventListener('load', onLoad, false);
