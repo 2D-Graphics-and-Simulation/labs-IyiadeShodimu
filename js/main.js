@@ -25,6 +25,12 @@ function onLoad() {
         mainContext.fillStyle = "#000000";
         // fill the canvas with black
         mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
+        // choose a font for our message
+        mainContext.font = "40pt Century Gothic";
+        // set the draw fill colour to white
+        mainContext.fillStyle = "#ffffff";
+        // draw the text at the specified position
+        mainContext.fillText("Hello World!", 150, 100);
     }
     initialiseCanvasContext();
     draw();
