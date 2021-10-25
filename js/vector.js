@@ -64,4 +64,11 @@ class Vector {
         
         return vector;
     }
+    magnitude(pVector) {
+        var x = this.getX();
+        var y = this.getY();
+        var z = this.getZ();
+
+        
+    }
 }
