@@ -22,4 +22,28 @@ class Vector {
     setZ(pZ) {
         this.mZ = pZ;
     }
+    add(pVector) {
+        var x = pVector.getX();
+        var y = pVector.getY();
+        var z = pVector.getZ();
+        x = this.getX() + x;
+        y = this.getY() + y;
+        z = this.getZ() + z;
+
+        var vector = new Vector(x, y, z);
+
+        return vector;
+    }
+    subtract(pVector) {
+        var x = pVector.getX();
+        var y = pVector.getY();
+        var z = pVector.getZ();
+        x = this.getX() - x;
+        y = this.getY() - y;
+        z = this.getZ() - z;
+
+        var vector = new Vector(x, y, z);
+
+        return vector;
+    }
 }
