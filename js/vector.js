@@ -46,4 +46,22 @@ class Vector {
 
         return vector;
     }
+    multiply(pScalar) {
+        var x = this.getX() * pScalar;
+        var y = this.getY() * pScalar;
+        var z = this.getZ() * pScalar;
+
+        var vector = new Vector(x, y, z);
+        
+        return vector;
+    }
+    divide(pScalar) {
+        var x = this.getX() / pScalar;
+        var y = this.getY() / pScalar;
+        var z = this.getZ() / pScalar;
+
+        var vector = new Vector(x, y, z);
+        
+        return vector;
+    }
 }
