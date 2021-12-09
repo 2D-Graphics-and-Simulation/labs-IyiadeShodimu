@@ -64,11 +64,30 @@ class Vector {
         
         return vector;
     }
-    magnitude(pVector) {
+    magnitude(pScalar) {
         var x = this.getX();
         var y = this.getY();
         var z = this.getZ();
+        var resultVector = new Vector (x, y, z);
 
+        var magnitude = Math.sqrt((x * x) + ( y * y) + ( z * z));
+        return magnitude;
         
+    }
+    normalise(pVector) {
+        var x = this.getX()/this.magnitude();
+        var y = this.getY()/this.magnitude();
+        var z = this.getZ()/this.magnitude();
+        var resultVector = new Vector (x, y, z)
+
+    
+        return resultVector;
+    
+    }
+    LimitTo(pScalar) {
+        
+        var x = this.getX();
+        var y = this.getY();
+        var z = this.getZ();
     }
 }
