@@ -89,5 +89,12 @@ class Vector {
         var x = this.getX();
         var y = this.getY();
         var z = this.getZ();
+        this.normalise();
+
+        if (this.magnitude() > pScalar)
+        {
+            this.magnitude = 60;
+        }
+        return resultVector;
     }
 }
