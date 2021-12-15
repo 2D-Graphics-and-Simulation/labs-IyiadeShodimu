@@ -1,6 +1,6 @@
 // the window load event handler
 function onLoad() {
-    var mainCanvas, mainContext;
+    var mainCanvas, mainContext, textPosition;
     // This function will initialise our variables
     function initialiseCanvasContext() {
         // Find the canvas element using its id attribute.
@@ -16,7 +16,8 @@ function onLoad() {
          if (!mainContext) {
              alert('Error: failed to get context!');
              return;
-         }      
+         }
+         textPosition = new Vector(150, 100, 1);
 
     }
     // this function will actually draw on the canvas
@@ -30,7 +31,7 @@ function onLoad() {
         // set the draw fill colour to white
         mainContext.fillStyle = "#ffffff";
         // draw the text at the specified position
-        mainContext.fillText("Hello World!", 150, 100);
+        mainContext.fillText("Hello World!", textPosition.getX(), textPosition.getY());
     }
     initialiseCanvasContext();
     draw();
