@@ -1,6 +1,6 @@
 // the window load event handler
 function onLoad() {
-    var mainCanvas, mainContext;
+    var mainCanvas, mainContext, housePosition, houses;
     // This function will initialise our variables
     function initialiseCanvasContext() {
         // Find the canvas element using its id attribute.
@@ -17,7 +17,9 @@ function onLoad() {
              alert('Error: failed to get context!');
              return;
          }
-        
+        housePosition = new Vector(150, 100, 1);
+        houses = []
+        houses.push(new House(housePosition));
 
     }
     // this function will actually draw on the canvas
