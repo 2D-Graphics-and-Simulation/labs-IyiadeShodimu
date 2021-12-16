@@ -92,7 +92,11 @@ class Vector {
           
     
     dotProduct(pVector) {
+        var DotProduct =   (this.getX() * pVector.getX() + this.getY() * pVector.getY());
 
-        return (this.getX() * pVector.getX() + this.getY() * pVector.getY());
+        return DotProduct;
+    }
+    interpolate(pVector, pScalar) {
+        
     }
 }
