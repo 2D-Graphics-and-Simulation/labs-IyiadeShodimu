@@ -84,26 +84,15 @@ class Vector {
         return resultVector;
     
     }
-    LimitTo(pScalar) {
-        var magnitude = this.magnitude();
-        limitToVector = new Vector(pX, pY, pZ)
-        if(magnitude > pScalar){
-            var normalisedVector = this.normalise()
-            var pX = normalisedVector.getX() * pScalar;
-            var pY = normalisedVector.getY() * pScalar;
-            var pZ = normalisedVector.getZ() * pScalar;
-
-
-            return limitedVector;
-        
-        }
+    limitTo = function (Scalar) {
+        this.normalise();
+        this.multiply(Scalar);
+        return new Vector(this.getX(), this.getY(), this.getZ());
+    };
           
-    }
+    
     dotProduct(pVector) {
-        var x = this.getX();
-        var y = this.getY();
-        var z = this.getZ();
-        
- 
+
+        return (this.getX() * pVector.getX() + this.getY() * pVector.getY());
     }
 }
