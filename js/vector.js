@@ -97,6 +97,13 @@ class Vector {
         return DotProduct;
     }
     interpolate(pVector, pScalar) {
-        
+        var firstVector = new Vector(this.getX(), this.getY(), this.getZ());
+        var newVector = new Vector(pVector.getX(), pVector.getY(), pVector.getZ());
+        var interpolatedVector = new Vector(newVector.subtract(firstVector));
+
+        var finalVector = firstVector + (interpolatedVector.multiply(pScalar));
+
+        return finalVector;
+
     }
 }
