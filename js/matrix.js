@@ -25,6 +25,7 @@ class Matrix {
         return new Matrix(1, 0 , 0, 0, 1, 0, 0, 0, 1);
     }
     static createTranslation(pVector) {
+        var translateMatrix;
         
     }
 }

@@ -25,7 +25,7 @@ function onLoad() {
     // this function will actually draw on the canvas
     function draw() {
         // set the draw fill style colour to black
-        mainContext.fillStyle = "#cccccc";
+        mainContext.fillStyle = "#add8e6";
         // fill the canvas with black
         mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
         mainContext.lineWidth = 5;
