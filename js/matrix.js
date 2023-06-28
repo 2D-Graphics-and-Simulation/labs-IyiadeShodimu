@@ -16,7 +16,15 @@ class Matrix {
         let index = pRow * 3 + pColumn;
         return this.mElements[index];
     }
+    
+    setElement(pRow, pColumn, pElement){
+        let index = pRow * 3 + pColumn;
+        this.mElements[index] = pElement;
+    }
     static createIdentity() {
         return new Matrix(1, 0 , 0, 0, 1, 0, 0, 0, 1);
+    }
+    static createTranslation(pVector) {
+        
     }
 }
