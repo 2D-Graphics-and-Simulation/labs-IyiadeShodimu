@@ -25,7 +25,42 @@ class Matrix {
         return new Matrix(1, 0 , 0, 0, 1, 0, 0, 0, 1);
     }
     static createTranslation(pVector) {
-        var translateMatrix;
-        
+        var idenMatrix = this.createIdentity();
+        var X = pVector.getX() + idenMatrix.getElement(0, 2)
+        var Y = pVector.getY() + idenMatrix.getElement(1, 2)
+        var Z;
+        if (pVector.getZ() == 1){
+            Z = 1;
+        }
+        else{
+            Z = pVector.getZ();
+        }
+
+        var translateMatrix = new Matrix(1, 0, X, 0, 1, Y, 0, 0, Z);
+
+        return translateMatrix;
+    }
+    static createScale(pVector){
+        var scaleMatrix = this.createIdentity();
+        var row;
+        var col;
+        for (row = 0; row < 3; row+=1){
+            for (col = 0; col < 3; col+=1){
+                if (row == 0){
+                    var X = pVector.getX() * scaleMatrix.getElement(row,col);
+                    scaleMatrix.setElement(row, col, X);
+                }
+                else if (row == 1){
+                    var Y = pVector.getY() * scaleMatrix.getElement(row,col);
+                    scaleMatrix.setElement(row, col, Y);
+                }
+                else{
+                    var Z = pVector.getZ() * scaleMatrix.getElement(row,col);
+                    scaleMatrix.setElement(row, col, Z);
+                }
+            }
+
+        }
+        return scaleMatrix;
     }
 }
