@@ -63,4 +63,24 @@ class Matrix {
         }
         return scaleMatrix;
     }
+    static createRotation(pScalar){
+        var rotateMatrix = this.createIdentity();
+        var sinAngle = Math.sin(pScalar);
+        var cosAngle = Math.cos(pScalar);
+        var row;
+        var col;
+        for (row = 0; row < 2; row+=1){
+            for (col = 0; col < 2; col+=1){
+                if (row == 0){
+                    var X = (rotateMatrix.getElement(row, col) * cosAngle) - (rotateMatrix.getElement(row, col+1) * sinAngle);
+                    rotateMatrix.setElement(row, col, X) 
+                }
+                else{
+                    var Y = (rotateMatrix.getElement(row, col) * sinAngle) + (rotateMatrix.getElement(row, col+1) * cosAngle);
+                    rotateMatrix.setElement(row, col, Y);
+                }
+            }
+        }
+        return rotateMatrix;
+    }
 }
