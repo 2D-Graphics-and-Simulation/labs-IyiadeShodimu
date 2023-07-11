@@ -25,18 +25,8 @@ class Matrix {
         return new Matrix(1, 0 , 0, 0, 1, 0, 0, 0, 1);
     }
     static createTranslation(pVector) {
-        var idenMatrix = this.createIdentity();
-        var X = pVector.getX() + idenMatrix.getElement(0, 2)
-        var Y = pVector.getY() + idenMatrix.getElement(1, 2)
-        var Z;
-        if (pVector.getZ() == 1){
-            Z = 1;
-        }
-        else{
-            Z = pVector.getZ();
-        }
-
-        var translateMatrix = new Matrix(1, 0, X, 0, 1, Y, 0, 0, Z);
+    
+        var translateMatrix = new Matrix(1, 0, pVector.getX(), 0, 1, pVector.getY(), 0, 0, 1);
 
         return translateMatrix;
     }
@@ -64,23 +54,30 @@ class Matrix {
         return scaleMatrix;
     }
     static createRotation(pScalar){
-        var rotateMatrix = this.createIdentity();
         var sinAngle = Math.sin(pScalar);
         var cosAngle = Math.cos(pScalar);
-        var row;
-        var col;
-        for (row = 0; row < 2; row+=1){
-            for (col = 0; col < 2; col+=1){
-                if (row == 0){
-                    var X = (rotateMatrix.getElement(row, col) * cosAngle) - (rotateMatrix.getElement(row, col+1) * sinAngle);
-                    rotateMatrix.setElement(row, col, X) 
-                }
-                else{
-                    var Y = (rotateMatrix.getElement(row, col) * sinAngle) + (rotateMatrix.getElement(row, col+1) * cosAngle);
-                    rotateMatrix.setElement(row, col, Y);
-                }
-            }
-        }
+        var rotateMatrix = new Matrix(cosAngle, -sinAngle, 0, sinAngle, cosAngle, 0, 0, 0, 1);
         return rotateMatrix;
+    }
+    multiply(pMatrix){
+        var X1 = ((pMatrix.getElement(0, 0) * this.getElement(0, 0))+(pMatrix.getElement(1, 0) * this.getElement(0, 1)) + (pMatrix.getElement(2, 0) * this.getElement(0, 2)));
+        var X2 = ((pMatrix.getElement(0, 0) * this.getElement(1, 0))+(pMatrix.getElement(1, 0) * this.getElement(1, 1)) + (pMatrix.getElement(2, 0) * this.getElement(1, 2)));
+        var X3 = ((pMatrix.getElement(0, 0) * this.getElement(2, 0))+(pMatrix.getElement(1, 0) * this.getElement(2, 1)) + (pMatrix.getElement(2, 0) * this.getElement(2, 2)));
+
+        var Y1 = ((pMatrix.getElement(0, 1) * this.getElement(0, 0))+(pMatrix.getElement(1, 1) * this.getElement(0, 1)) + (pMatrix.getElement(2, 1) * this.getElement(0, 2)));
+        var Y2 = ((pMatrix.getElement(0, 1) * this.getElement(1, 0))+(pMatrix.getElement(1, 1) * this.getElement(1, 1)) + (pMatrix.getElement(2, 1) * this.getElement(1, 2)));
+        var Y3 = ((pMatrix.getElement(0, 1) * this.getElement(2, 0))+(pMatrix.getElement(1, 1) * this.getElement(2, 1)) + (pMatrix.getElement(2, 1) * this.getElement(2, 2)));
+
+        var Z1 = ((pMatrix.getElement(0, 2) * this.getElement(0, 0))+(pMatrix.getElement(1, 2) * this.getElement(0, 1)) + (pMatrix.getElement(2, 2) * this.getElement(0, 2)));
+        var Z2 = ((pMatrix.getElement(0, 2) * this.getElement(1, 0))+(pMatrix.getElement(1, 2) * this.getElement(1, 1)) + (pMatrix.getElement(2, 2) * this.getElement(1, 2)));
+        var Z3 = ((pMatrix.getElement(0, 2) * this.getElement(2, 0))+(pMatrix.getElement(1, 2) * this.getElement(2, 1)) + (pMatrix.getElement(2, 2) * this.getElement(2, 2)));
+
+        return new Matrix(X1, Y1, Z1, X1, Y2, Z2, X3, Y3, Z3);
+    }
+    multiplyVector(pVector){
+        var X = ((this.getElement(0, 0) * pVector.getX()) + (this.getElement(0, 1) * pVector.getX()) + (this.getElement(0, 2) * pVector.getX()));
+        var Y = ((this.getElement(1, 0) * pVector.getY()) + (this.getElement(1, 1) * pVector.getY()) + (this.getElement(1, 2) * pVector.getY()));
+        var Z = ((this.getElement(2, 0) * pVector.getZ()) + (this.getElement(2, 1) * pVector.getZ()) + (this.getElement(2, 2) * pVector.getZ()));
+        return new Vector(X, Y, Z);
     }
 }
