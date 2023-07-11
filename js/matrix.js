@@ -59,6 +59,12 @@ class Matrix {
         var rotateMatrix = new Matrix(cosAngle, -sinAngle, 0, sinAngle, cosAngle, 0, 0, 0, 1);
         return rotateMatrix;
     }
+    setTransform(pContext){
+        pContext.setTransform(this.getElement(0, 0), this.getElement(0, 1), this.getElement())
+    }
+    transform(pContext){
+
+    }
     multiply(pMatrix){
         var X1 = ((pMatrix.getElement(0, 0) * this.getElement(0, 0))+(pMatrix.getElement(1, 0) * this.getElement(0, 1)) + (pMatrix.getElement(2, 0) * this.getElement(0, 2)));
         var X2 = ((pMatrix.getElement(0, 0) * this.getElement(1, 0))+(pMatrix.getElement(1, 0) * this.getElement(1, 1)) + (pMatrix.getElement(2, 0) * this.getElement(1, 2)));
