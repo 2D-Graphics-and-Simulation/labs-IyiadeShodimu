@@ -1,6 +1,6 @@
 // the window load event handler
 function onLoad() {
-    var mainCanvas, mainContext, housePosition, houses;
+    var mainCanvas, mainContext, housePosition, houses, originMatrix;
     // This function will initialise our variables
     function initialiseCanvasContext() {
         // Find the canvas element using its id attribute.
@@ -17,7 +17,11 @@ function onLoad() {
              alert('Error: failed to get context!');
              return;
          }
-        housePosition = new Vector(200, 200, 1);
+        let originVector = new Vector(mainCanvas.width, mainCanvas.height, 1);
+        originVector = originVector.multiply(0.5);
+        originMatrix = Matrix.createTranslation(originVector);
+        
+        housePosition = new Vector(100, 100, 1);
         houses = []
         houses.push(new House(housePosition));
 
@@ -29,7 +33,8 @@ function onLoad() {
         // fill the canvas with light blue
         mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
         mainContext.lineWidth = 5;
-        mainContext.lineJoin = 'round' ;     
+        mainContext.lineJoin = 'round' ;
+        originMatrix.setTransform(mainContext);     
         for (i = 0; i < houses.length; i+=1){
             houses[i].draw(mainContext);
         }
