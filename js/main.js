@@ -21,7 +21,7 @@ function onLoad() {
         originVector = originVector.multiply(0.5);
         originMatrix = Matrix.createTranslation(originVector);
         
-        housePosition = new Vector(100, 100, 1);
+        housePosition = new Vector(0, 0, 1);
         houses = []
         houses.push(new House(housePosition));
 
