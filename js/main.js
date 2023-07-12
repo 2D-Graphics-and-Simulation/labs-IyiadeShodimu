@@ -17,79 +17,25 @@ function onLoad() {
              alert('Error: failed to get context!');
              return;
          }
-        housePosition = new Vector(150, 100, 1);
+        housePosition = new Vector(200, 200, 1);
         houses = []
         houses.push(new House(housePosition));
 
     }
     // this function will actually draw on the canvas
     function draw() {
-        // set the draw fill style colour to black
+        var i;
         mainContext.fillStyle = "#add8e6";
-        // fill the canvas with black
+        // fill the canvas with light blue
         mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
         mainContext.lineWidth = 5;
         mainContext.lineJoin = 'round' ;     
-        drawWall(mainContext);  
-        drawRoof(mainContext);     
-        drawDoor(mainContext);
-        drawLeftWindow(mainContext);
-        drawRightWindow(mainContext);
+        for (i = 0; i < houses.length; i+=1){
+            houses[i].draw(mainContext);
+        }
     }
-    function drawWall(pContext) {
-        pContext.beginPath();
-        pContext.fillStyle = "#ffffff";
-        pContext.moveTo(200, 200);
-        pContext.lineTo(400, 200);
-        pContext.lineTo(400, 300);
-        pContext.lineTo(200, 300);
-        pContext.closePath();
-        pContext.fill();
-        pContext.stroke();
-    }
-    function drawRoof(pContext) {
-        pContext.beginPath();
-        pContext.fillStyle = "#ff0000";
-        pContext.moveTo(200, 200);
-        pContext.lineTo(300, 100);
-        pContext.lineTo(400, 200);
-        pContext.closePath();
-        pContext.fill();
-        pContext.stroke();
-    }
-    function drawDoor(pContext) {
-        pContext.beginPath();
-        pContext.fillStyle = "#ffffff";
-        pContext.moveTo(275, 300);
-        pContext.lineTo(275, 225);
-        pContext.lineTo(325, 225);
-        pContext.lineTo(325, 300);
-        pContext.closePath();
-        pContext.fill();
-        pContext.stroke();
-    }
-    function drawLeftWindow(pContext) {
-        pContext.beginPath();
-        pContext.fillStyle = "#0000ff";
-        pContext.moveTo(220, 275);
-        pContext.lineTo(220, 225);
-        pContext.lineTo(250, 225);
-        pContext.lineTo(250, 275);
-        pContext.closePath();
-        pContext.fill();
-        pContext.stroke();
-    }
-    function drawRightWindow(pContext) {
-        pContext.beginPath();
-        pContext.fillStyle = "#0000ff";
-        pContext.moveTo(350, 275);
-        pContext.lineTo(350, 225);
-        pContext.lineTo(380, 225);
-        pContext.lineTo(380, 275);
-        pContext.closePath();
-        pContext.fill();
-        pContext.stroke();
-    }
+
+    
     initialiseCanvasContext();
     draw();
 }
