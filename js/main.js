@@ -36,7 +36,7 @@ function onLoad() {
         mainContext.lineJoin = 'round' ;
         originMatrix.setTransform(mainContext);     
         for (i = 0; i < houses.length; i+=1){
-            houses[i].draw(mainContext);
+            houses[i].draw(mainContext, originMatrix);
         }
     }
 

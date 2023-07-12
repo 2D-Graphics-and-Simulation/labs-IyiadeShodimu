@@ -12,10 +12,10 @@ setPosition(pPosition) {
 drawWall(pContext){
     pContext.beginPath();
     pContext.fillStyle = "#ffffff";
-    pContext.moveTo(this.getPosition().getX() - 100, this.getPosition().getY());
-    pContext.lineTo(this.getPosition().getX() + 100, this.getPosition().getY());
-    pContext.lineTo(this.getPosition().getX() + 100, this.getPosition().getY() + 100);
-    pContext.lineTo(this.getPosition().getX() - 100, this.getPosition().getY() + 100);
+    pContext.moveTo( - 100, 0);
+    pContext.lineTo( + 100, 0);
+    pContext.lineTo( + 100,  + 100);
+    pContext.lineTo( - 100,  + 100);
     pContext.closePath();
     pContext.fill();
     pContext.stroke();
@@ -23,9 +23,9 @@ drawWall(pContext){
 drawRoof(pContext) {
     pContext.beginPath();
     pContext.fillStyle = "#ff0000";
-    pContext.moveTo(this.getPosition().getX() - 100, this.getPosition().getY());
-    pContext.lineTo(this.getPosition().getX(), this.getPosition().getY() - 100);
-    pContext.lineTo(this.getPosition().getX() + 100, this.getPosition().getY());
+    pContext.moveTo( - 100, 0);
+    pContext.lineTo(0,  - 100);
+    pContext.lineTo( + 100, 0);
     pContext.closePath();
     pContext.fill();
     pContext.stroke();
@@ -33,10 +33,10 @@ drawRoof(pContext) {
 drawDoor(pContext) {
     pContext.beginPath();
     pContext.fillStyle = "#a63f00";
-    pContext.moveTo(this.getPosition().getX() - 25, this.getPosition().getY() + 100);
-    pContext.lineTo(this.getPosition().getX() - 25, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() + 25, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() + 25, this.getPosition().getY() + 100);
+    pContext.moveTo( - 25,  + 100);
+    pContext.lineTo( - 25,  + 25);
+    pContext.lineTo( + 25,  + 25);
+    pContext.lineTo( + 25,  + 100);
     pContext.closePath();
     pContext.fill();
     pContext.stroke();
@@ -44,10 +44,10 @@ drawDoor(pContext) {
 drawLeftWindow(pContext) {
     pContext.beginPath();
     pContext.fillStyle = "#0000ff";
-    pContext.moveTo(this.getPosition().getX() - 80, this.getPosition().getY() + 75);
-    pContext.lineTo(this.getPosition().getX() - 80, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() - 50, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() - 50, this.getPosition().getY() + 75);
+    pContext.moveTo( - 80,  + 75);
+    pContext.lineTo( - 80,  + 25);
+    pContext.lineTo( - 50,  + 25);
+    pContext.lineTo( - 50,  + 75);
     pContext.closePath();
     pContext.fill();
     pContext.stroke();
@@ -55,10 +55,10 @@ drawLeftWindow(pContext) {
 drawRightWindow(pContext) {
     pContext.beginPath();
     pContext.fillStyle = "#0000ff";
-    pContext.moveTo(this.getPosition().getX() + 80, this.getPosition().getY() + 75);
-    pContext.lineTo(this.getPosition().getX() + 80, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() + 50, this.getPosition().getY() + 25);
-    pContext.lineTo(this.getPosition().getX() + 50, this.getPosition().getY() + 75);
+    pContext.moveTo( + 80,  + 75);
+    pContext.lineTo( + 80,  + 25);
+    pContext.lineTo( + 50,  + 25);
+    pContext.lineTo( + 50,  + 75);
     pContext.closePath();
     pContext.fill();
     pContext.stroke();
