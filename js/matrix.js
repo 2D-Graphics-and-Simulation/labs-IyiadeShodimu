@@ -59,12 +59,7 @@ class Matrix {
         var rotateMatrix = new Matrix(cosAngle, -sinAngle, 0, sinAngle, cosAngle, 0, 0, 0, 1);
         return rotateMatrix;
     }
-    setTransform(pContext){
-        pContext.setTransform(this.getElement(0, 0), this.getElement(0, 1), this.getElement())
-    }
-    transform(pContext){
 
-    }
     multiply(pMatrix){
         var X1 = ((pMatrix.getElement(0, 0) * this.getElement(0, 0))+(pMatrix.getElement(1, 0) * this.getElement(0, 1)) + (pMatrix.getElement(2, 0) * this.getElement(0, 2)));
         var X2 = ((pMatrix.getElement(0, 0) * this.getElement(1, 0))+(pMatrix.getElement(1, 0) * this.getElement(1, 1)) + (pMatrix.getElement(2, 0) * this.getElement(1, 2)));
@@ -85,5 +80,11 @@ class Matrix {
         var Y = ((this.getElement(1, 0) * pVector.getY()) + (this.getElement(1, 1) * pVector.getY()) + (this.getElement(1, 2) * pVector.getY()));
         var Z = ((this.getElement(2, 0) * pVector.getZ()) + (this.getElement(2, 1) * pVector.getZ()) + (this.getElement(2, 2) * pVector.getZ()));
         return new Vector(X, Y, Z);
+    }
+    setTransform(pContext){
+        pContext.setTransform(this.getElement(0, 0), this.getElement(1, 0), this.getElement(0, 1), this.getElement(1, 1), this.getElement(0, 2), this.getElement(1, 2));
+    }
+    transform(pContext){
+        pContext.transform(this.getElement(0, 0), this.getElement(1, 0), this.getElement(0, 1), this.getElement(1, 1), this.getElement(0, 2), this.getElement(1, 2));
     }
 }
